@@ -4,18 +4,18 @@ using KitchenLib.Customs;
 
 namespace HealthInspector.Customs
 {
-    public class HealthInspectorDummy : CustomDish
+    public class HealthInspectorDummyAppliance : CustomAppliance
     {
         public override string UniqueNameID => "HealthInspectorDummy";
-        public override bool IsUnlockable => false;
 
-        public override List<(Locale, UnlockInfo)> InfoList => new()
+        public override List<(Locale, ApplianceInfo)> InfoList => new()
         {
             (
                 Locale.English,
-                new UnlockInfo
+                new ApplianceInfo
                 {
-                    Name = "Health Inspector"
+                    Name = "Health Inspector",
+                    Description = "You really shouldn't even see this... What are you doing?"
                 }
             )
         };

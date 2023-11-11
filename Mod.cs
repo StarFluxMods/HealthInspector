@@ -21,6 +21,7 @@ namespace HealthInspector
         public Mod() : base(MOD_GUID, MOD_NAME, MOD_AUTHOR, MOD_VERSION, MOD_GAMEVERSION, Assembly.GetExecutingAssembly()) { }
 
         public static int HealthInspectorDummy = 0;
+        public static int HealthInspectorDummyAppliance = 0;
         public static PreferenceManager manager;
         
         protected override void OnInitialise()
@@ -53,6 +54,7 @@ namespace HealthInspector
 			};
             
             HealthInspectorDummy = AddGameDataObject<HealthInspectorDummy>().ID;
+            HealthInspectorDummyAppliance = AddGameDataObject<HealthInspectorDummyAppliance>().ID;
         }
         #region Logging
         public static void LogInfo(string _log) { Debug.Log($"[{MOD_NAME}] " + _log); }

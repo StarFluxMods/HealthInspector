@@ -44,7 +44,7 @@ namespace HealthInspector.Systems
                 Entity e = EntityManager.CreateEntity(typeof(CMoneyTrackEvent));
                 EntityManager.SetComponentData(e, new CMoneyTrackEvent
                 {
-                    Identifier = Mod.HealthInspectorDummy,
+                    Identifier = Mod.HealthInspectorDummyAppliance,
                     Amount = Mod.manager.GetPreference<PreferenceInt>("costReductionPerMess").Value
                 });
             }
