@@ -9,18 +9,15 @@ namespace HealthInspector.Menus
 {
     public class PreferenceMenu<T> : KLMenu<T>
     {
-        public PreferenceMenu(Transform container, ModuleList module_list) : base(container, module_list) { }
-
-        private Option<int> costReductionPerMess = new Option<int>(new List<int> { -1, -2, -3, -4, -5, -6, -7, -8, -9, -10 }, Mod.manager.GetPreference<PreferenceInt>("costReductionPerMess").Value, new List<string> { "-1", "-2", "-3", "-4", "-5", "-6", "-7", "-8", "-9", "That's Enough" });
+        public PreferenceMenu(Transform container, ModuleList module_list) : base(container, module_list)
+        {
+        }
         
         public override void Setup(int player_id)
         {
-            AddLabel("Reduction Per Mess");
-            AddSelect(costReductionPerMess);
-            costReductionPerMess.OnChanged += delegate (object _, int result)
-            {
-                Mod.manager.GetPreference<PreferenceInt>("costReductionPerMess").Set(result);
-            };
+            
+            AddSubmenuButton("Health Inspector", typeof(HealthInspectorMenu<T>), false);
+            AddSubmenuButton("Rats", typeof(RatsMenu<T>), false);
             
             New<SpacerElement>(true);
             New<SpacerElement>(true);

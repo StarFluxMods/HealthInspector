@@ -8,9 +8,16 @@
 		<NoWarn>CS0114</NoWarn>
 	</PropertyGroup>
 	
+	<PropertyGroup>
+		<AssetBundlePath>$(ProjectDir)UnityProject - HealthInspector\content\mod.assets</AssetBundlePath>
+	</PropertyGroup>
+	
 	<ItemGroup>
 	  <Compile Remove="content\**" />
+	  <Compile Remove="UnityProject - HealthInspector\**" />
 	  <EmbeddedResource Remove="content\**" />
+	  <EmbeddedResource Remove="UnityProject - HealthInspector\**" />
+	  <None Remove="UnityProject - HealthInspector\**" />
 	</ItemGroup>
   
 	<ItemGroup>

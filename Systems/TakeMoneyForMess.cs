@@ -31,11 +31,25 @@ namespace HealthInspector.Systems
                 Entity mess = messes[i];
                 if (Require(mess, out CAppliance cAppliance))
                 {
-                    if (cAppliance.ID == ApplianceReferences.MessCustomer1 || cAppliance.ID == ApplianceReferences.MessCustomer2 || cAppliance.ID == ApplianceReferences.MessCustomer3 ||
-                        cAppliance.ID == ApplianceReferences.MessKitchen1 || cAppliance.ID == ApplianceReferences.MessKitchen3 || cAppliance.ID == ApplianceReferences.MessKitchen3)
+                    if (Mod.manager.GetPreference<PreferenceBool>("messMultiplyBySize").Value)
                     {
-                        messAmount++;
+                        if (cAppliance.ID == ApplianceReferences.MessCustomer1 || cAppliance.ID == ApplianceReferences.MessKitchen1)
+                            messAmount++;
+                        else if (cAppliance.ID == ApplianceReferences.MessCustomer2 || cAppliance.ID == ApplianceReferences.MessKitchen2)
+                            messAmount += 2;
+                        else if (cAppliance.ID == ApplianceReferences.MessCustomer3 || cAppliance.ID == ApplianceReferences.MessKitchen3)
+                            messAmount += 3;
                     }
+                    else
+                    {
+                        if (cAppliance.ID == ApplianceReferences.MessCustomer1 || cAppliance.ID == ApplianceReferences.MessCustomer2 || cAppliance.ID == ApplianceReferences.MessCustomer3 ||
+                         cAppliance.ID == ApplianceReferences.MessKitchen1 || cAppliance.ID == ApplianceReferences.MessKitchen3 || cAppliance.ID == ApplianceReferences.MessKitchen3)
+                        {
+                            messAmount++;
+                        }
+                    }
+
+                    
                 }
             }
             

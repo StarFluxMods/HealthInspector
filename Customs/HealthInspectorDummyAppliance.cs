@@ -6,7 +6,7 @@ namespace HealthInspector.Customs
 {
     public class HealthInspectorDummyAppliance : CustomAppliance
     {
-        public override string UniqueNameID => "HealthInspectorDummy";
+        public override string UniqueNameID => "HealthInspectorDummyAppliance";
 
         public override List<(Locale, ApplianceInfo)> InfoList => new()
         {
