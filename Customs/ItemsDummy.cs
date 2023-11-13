@@ -4,9 +4,9 @@ using KitchenLib.Customs;
 
 namespace HealthInspector.Customs
 {
-    public class HealthInspectorDummyAppliance : CustomAppliance
+    public class ItemsDummy : CustomAppliance
     {
-        public override string UniqueNameID => "HealthInspectorDummyAppliance";
+        public override string UniqueNameID => "ItemsDummy";
 
         public override List<(Locale, ApplianceInfo)> InfoList => new()
         {
@@ -14,7 +14,7 @@ namespace HealthInspector.Customs
                 Locale.English,
                 new ApplianceInfo
                 {
-                    Name = "Floor Mess",
+                    Name = "Left Out Items",
                     Description = "You really shouldn't even see this... What are you doing?"
                 }
             )

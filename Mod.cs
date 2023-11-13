@@ -16,7 +16,7 @@ namespace HealthInspector
     {
         public const string MOD_GUID = "com.starfluxgames.healthinspector";
         public const string MOD_NAME = "Health Inspector";
-        public const string MOD_VERSION = "0.1.2";
+        public const string MOD_VERSION = "0.1.3";
         public const string MOD_AUTHOR = "StarFluxGames";
         public const string MOD_GAMEVERSION = ">=1.1.4";
 
@@ -24,6 +24,8 @@ namespace HealthInspector
 
         public static int HealthInspectorDummy = 0;
         public static int HealthInspectorDummyAppliance = 0;
+        public static int GarbageDummy = 0;
+        public static int ItemsDummy = 0;
         public static int Rat = 0;
         public static PreferenceManager manager;
         public static AssetBundle Bundle;
@@ -72,6 +74,8 @@ namespace HealthInspector
             
             HealthInspectorDummy = AddGameDataObject<HealthInspectorDummy>().ID;
             HealthInspectorDummyAppliance = AddGameDataObject<HealthInspectorDummyAppliance>().ID;
+            GarbageDummy = AddGameDataObject<GarbageDummy>().ID;
+            ItemsDummy = AddGameDataObject<ItemsDummy>().ID;
             Rat = AddGameDataObject<Rat>().ID;
         }
         #region Logging

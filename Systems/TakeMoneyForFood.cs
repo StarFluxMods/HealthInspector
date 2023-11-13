@@ -1,4 +1,5 @@
 using Kitchen;
+using KitchenData;
 using KitchenLib.Preferences;
 using KitchenMods;
 using Unity.Collections;
@@ -28,7 +29,7 @@ namespace HealthInspector.Systems
             for (int i = 0; i < itemHolders.Length; i++)
             {
                 Entity item = itemHolders[i];
-                if (Require(item, out CItemHolder cItemHolder) && !Require(item, out CPreservesContentsOvernight cPreservesContentsOvernight) && !Require(item, out CItemProvider cItemProvider) && cItemHolder.HeldItem != Entity.Null)
+                if (Require(item, out CItemHolder cItemHolder) && !Has<CPreservesContentsOvernight>(item) && !Has<CItemProvider>(item) && cItemHolder.HeldItem != Entity.Null && Require(cItemHolder.HeldItem, out CItem cItem) && GameData.Main.TryGet(cItem.ID, out Item held) && !held.IsIndisposable)
                 {
                     foodAmount++;
                 }
@@ -39,7 +40,7 @@ namespace HealthInspector.Systems
                 Entity e = EntityManager.CreateEntity(typeof(CMoneyTrackEvent));
                 EntityManager.SetComponentData(e, new CMoneyTrackEvent
                 {
-                    Identifier = Mod.HealthInspectorDummyAppliance,
+                    Identifier = Mod.ItemsDummy,
                     Amount = Mod.manager.GetPreference<PreferenceInt>("costReductionPerItem").Value
                 });
             }

@@ -28,7 +28,7 @@ namespace HealthInspector.Systems
             for (int i = 0; i < bins.Length; i++)
             {
                 Entity bin = bins[i];
-                if (Require(bin, out CApplianceBin cAppliance))
+                if (Require(bin, out CApplianceBin cAppliance) && !Has<CApplianceExternalBin>(bin))
                 {
                     garbageAmount += cAppliance.CurrentAmount;
                 }
@@ -39,7 +39,7 @@ namespace HealthInspector.Systems
                 Entity e = EntityManager.CreateEntity(typeof(CMoneyTrackEvent));
                 EntityManager.SetComponentData(e, new CMoneyTrackEvent
                 {
-                    Identifier = Mod.HealthInspectorDummyAppliance,
+                    Identifier = Mod.GarbageDummy,
                     Amount = Mod.manager.GetPreference<PreferenceInt>("costReductionPerGarbage").Value
                 });
             }
