@@ -25,6 +25,7 @@ namespace HealthInspector.Menus
             costReductionPerMess.OnChanged += delegate (object _, int result)
             {
                 Mod.manager.GetPreference<PreferenceInt>("costReductionPerMess").Set(result);
+                Mod.manager.Save();
             };
             
             New<SpacerElement>(true);
@@ -33,6 +34,7 @@ namespace HealthInspector.Menus
             messMultiplyBySize.OnChanged += delegate (object _, bool result)
             {
                 Mod.manager.GetPreference<PreferenceBool>("messMultiplyBySize").Set(result);
+                Mod.manager.Save();
             };
             
             New<SpacerElement>(true);
@@ -42,6 +44,7 @@ namespace HealthInspector.Menus
             costReductionPerGarbage.OnChanged += delegate (object _, int result)
             {
                 Mod.manager.GetPreference<PreferenceInt>("costReductionPerGarbage").Set(result);
+                Mod.manager.Save();
             };
             
             New<SpacerElement>(true);
@@ -51,6 +54,7 @@ namespace HealthInspector.Menus
             costReductionPerItem.OnChanged += delegate (object _, int result)
             {
                 Mod.manager.GetPreference<PreferenceInt>("costReductionPerItem").Set(result);
+                Mod.manager.Save();
             };
             
             New<SpacerElement>(true);

@@ -16,9 +16,9 @@ namespace HealthInspector
     {
         public const string MOD_GUID = "com.starfluxgames.healthinspector";
         public const string MOD_NAME = "Health Inspector";
-        public const string MOD_VERSION = "0.1.3";
+        public const string MOD_VERSION = "0.1.4";
         public const string MOD_AUTHOR = "StarFluxGames";
-        public const string MOD_GAMEVERSION = ">=1.1.4";
+        public const string MOD_GAMEVERSION = ">=1.2.0";
 
         public Mod() : base(MOD_GUID, MOD_NAME, MOD_AUTHOR, MOD_VERSION, MOD_GAMEVERSION, Assembly.GetExecutingAssembly()) { }
 
@@ -55,21 +55,21 @@ namespace HealthInspector
             manager.Load();
             manager.Save();
             
-            ModsPreferencesMenu<PauseMenuAction>.RegisterMenu(MOD_NAME, typeof(PreferenceMenu<PauseMenuAction>), typeof(PauseMenuAction));
-            ModsPreferencesMenu<MainMenuAction>.RegisterMenu(MOD_NAME, typeof(PreferenceMenu<MainMenuAction>), typeof(MainMenuAction));
+            ModsPreferencesMenu<MenuAction>.RegisterMenu(MOD_NAME, typeof(PreferenceMenu<MenuAction>), typeof(MenuAction));
+            ModsPreferencesMenu<MenuAction>.RegisterMenu(MOD_NAME, typeof(PreferenceMenu<MenuAction>), typeof(MenuAction));
             
             Events.MainMenuView_SetupMenusEvent += (s, args) =>
 			{
-                args.addMenu.Invoke(args.instance, new object[] { typeof(PreferenceMenu<MainMenuAction>), new PreferenceMenu<MainMenuAction>(args.instance.ButtonContainer, args.module_list) });
-                args.addMenu.Invoke(args.instance, new object[] { typeof(HealthInspectorMenu<MainMenuAction>), new HealthInspectorMenu<MainMenuAction>(args.instance.ButtonContainer, args.module_list) });
-                args.addMenu.Invoke(args.instance, new object[] { typeof(RatsMenu<MainMenuAction>), new RatsMenu<MainMenuAction>(args.instance.ButtonContainer, args.module_list) });
+                args.addMenu.Invoke(args.instance, new object[] { typeof(PreferenceMenu<MenuAction>), new PreferenceMenu<MenuAction>(args.instance.ButtonContainer, args.module_list) });
+                args.addMenu.Invoke(args.instance, new object[] { typeof(HealthInspectorMenu<MenuAction>), new HealthInspectorMenu<MenuAction>(args.instance.ButtonContainer, args.module_list) });
+                args.addMenu.Invoke(args.instance, new object[] { typeof(RatsMenu<MenuAction>), new RatsMenu<MenuAction>(args.instance.ButtonContainer, args.module_list) });
 			};
 			            
 			Events.PlayerPauseView_SetupMenusEvent += (s, args) =>
 			{
-				args.addMenu.Invoke(args.instance, new object[] { typeof(PreferenceMenu<PauseMenuAction>), new PreferenceMenu<PauseMenuAction>(args.instance.ButtonContainer, args.module_list) });
-				args.addMenu.Invoke(args.instance, new object[] { typeof(HealthInspectorMenu<PauseMenuAction>), new HealthInspectorMenu<PauseMenuAction>(args.instance.ButtonContainer, args.module_list) });
-				args.addMenu.Invoke(args.instance, new object[] { typeof(RatsMenu<PauseMenuAction>), new RatsMenu<PauseMenuAction>(args.instance.ButtonContainer, args.module_list) });
+				args.addMenu.Invoke(args.instance, new object[] { typeof(PreferenceMenu<MenuAction>), new PreferenceMenu<MenuAction>(args.instance.ButtonContainer, args.module_list) });
+				args.addMenu.Invoke(args.instance, new object[] { typeof(HealthInspectorMenu<MenuAction>), new HealthInspectorMenu<MenuAction>(args.instance.ButtonContainer, args.module_list) });
+				args.addMenu.Invoke(args.instance, new object[] { typeof(RatsMenu<MenuAction>), new RatsMenu<MenuAction>(args.instance.ButtonContainer, args.module_list) });
 			};
             
             HealthInspectorDummy = AddGameDataObject<HealthInspectorDummy>().ID;

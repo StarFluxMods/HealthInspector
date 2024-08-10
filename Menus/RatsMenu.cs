@@ -26,6 +26,7 @@ namespace HealthInspector.Menus
             enableRats.OnChanged += delegate (object _, bool result)
             {
                 Mod.manager.GetPreference<PreferenceBool>("enableRats").Set(result);
+                Mod.manager.Save();
             };
             
             New<SpacerElement>(true);
@@ -35,6 +36,7 @@ namespace HealthInspector.Menus
             maxRats.OnChanged += delegate (object _, int result)
             {
                 Mod.manager.GetPreference<PreferenceInt>("maxRats").Set(result);
+                Mod.manager.Save();
             };
             
             New<SpacerElement>(true);
@@ -44,6 +46,7 @@ namespace HealthInspector.Menus
             ratSpawnRate.OnChanged += delegate (object _, int result)
             {
                 Mod.manager.GetPreference<PreferenceInt>("ratSpawnRate").Set(result);
+                Mod.manager.Save();
             };
             
             New<SpacerElement>(true);
@@ -53,6 +56,7 @@ namespace HealthInspector.Menus
             ratDespawnRate.OnChanged += delegate (object _, int result)
             {
                 Mod.manager.GetPreference<PreferenceInt>("ratDespawnRate").Set(result);
+                Mod.manager.Save();
             };
             
             New<SpacerElement>(true);
@@ -62,6 +66,7 @@ namespace HealthInspector.Menus
             messAmountToTriggerRats.OnChanged += delegate (object _, int result)
             {
                 Mod.manager.GetPreference<PreferenceInt>("messAmountToTriggerRats").Set(result);
+                Mod.manager.Save();
             };
             
             New<SpacerElement>(true);
